@@ -1,0 +1,156 @@
+# =========================
+
+# Python
+
+# =========================
+
+**pycache**/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environments
+
+.venv/
+venv/
+env/
+ENV/
+
+# =========================
+
+# Environment Variables
+
+# =========================
+
+.env
+.env.*
+!.env.example
+
+# =========================
+
+# FastAPI / Backend
+
+# =========================
+
+backend/.env
+backend/uploads/
+backend/faiss_index/
+backend/chroma_db/
+backend/vector_store/
+*.db
+*.sqlite3
+
+# Logs
+
+*.log
+logs/
+
+# =========================
+
+# React / Frontend
+
+# =========================
+
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.env
+frontend/.env.*
+
+# Vite
+
+.vite/
+
+# =========================
+
+# Docker
+
+# =========================
+
+docker-data/
+*.tar
+
+# =========================
+
+# IDEs
+
+# =========================
+
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# =========================
+
+# OS Files
+
+# =========================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+
+# Testing / Coverage
+
+# =========================
+
+.coverage
+.pytest_cache/
+htmlcov/
+coverage/
+
+# =========================
+
+# Jupyter
+
+# =========================
+
+.ipynb_checkpoints/
+
+# =========================
+
+# Temporary Files
+
+# =========================
+
+tmp/
+temp/
+*.tmp
+
+# =========================
+
+# Build Artifacts
+
+# =========================
+
+build/
+dist/
+*.egg-info/
+
+# =========================
+
+# Secrets
+
+# =========================
+
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# =========================
+
+# LangChain / AI Caches
+
+# =========================
+
+.cache/
+langchain.db
+langsmith/

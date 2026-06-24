@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+python-multipart
+
+langchain
+langchain-community
+langchain-core
+
+langchain-google-genai
+
+langchain-huggingface
+
+faiss-cpu
+
+pymupdf
+rank_bm25
+python-dotenv
