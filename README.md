@@ -10,7 +10,7 @@
 
 # 🌐 Live Demo
 
-🔗 **Website:** *(Add Deployment Link Here)*
+🔗 **Website:
 
 ---
 
@@ -347,7 +347,7 @@ It really helps!
 **Simarjit Singh**
 
 - GitHub: https://github.com/isimarjitsingh
-- LinkedIn: *(Add your LinkedIn here)*
+- LinkedIn: https://www.linkedin.com/in/simarjit-singh-875235313/
 
 ---
 
