@@ -60,7 +60,6 @@
 
 # 🏗 System Architecture
 
-> Replace the image below with your architecture diagram.
 
 <p align="center">
 <img src="images/architecture.png" width="1000">
@@ -70,7 +69,6 @@
 
 # 🔄 Workflow
 
-> Replace this image with your workflow diagram.
 
 <p align="center">
 <img src="images/workflow.png" width="1000">
