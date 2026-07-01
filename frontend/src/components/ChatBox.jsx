@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import { API_URL } from "../config";
 import Message from "./Message";
 
 const ChatBox = () => {
@@ -87,8 +88,8 @@ const ChatBox = () => {
       );
 
       const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/ask`,
-        formData
+          `${API_URL}/ask`,
+          formData
       );
 
       await streamResponse(

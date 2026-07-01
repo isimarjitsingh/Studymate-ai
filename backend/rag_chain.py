@@ -1,17 +1,20 @@
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_huggingface import HuggingFaceEndpoint,ChatHuggingFace
 from dotenv import load_dotenv
 import vector_store as vs
 import os
 from langchain_core.messages import HumanMessage,AIMessage
 from langchain_core.chat_history import InMemoryChatMessageHistory
 
-
 load_dotenv()
 
-llm=ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
-    google_api_key=os.getenv("GOOGLE_API_KEY")
+chat = HuggingFaceEndpoint(
+    repo_id="meta-llama/Llama-3.1-8B-Instruct",
+    task="text-generation",
+    max_new_tokens=512,
+    temperature=0.3,
 )
+
+llm = ChatHuggingFace(llm=chat)
 
 history=InMemoryChatMessageHistory()
 
