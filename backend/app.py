@@ -1,8 +1,10 @@
-from fastapi import FastAPI, UploadFile, File, Form
+from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 
 import shutil
 import os
+import uuid
 
 from pdf_loader import load_pdf
 from vector_store import create_vector_store
@@ -21,6 +23,9 @@ app.add_middleware(
 
 # Global Vector Store
 vector_store = None
+
+class ChatRequest(BaseModel):
+    question: str
 
 
 @app.get("/")
@@ -65,21 +70,19 @@ async def upload_pdfs(
 
 # Ask Question
 @app.post("/ask")
-async def ask(
-    question: str = Form(...)
-):
+async def ask(request: ChatRequest):
     global vector_store
 
     if vector_store is None:
-        return {
-            "error": "Please upload PDFs first"
-        }
+        raise HTTPException(
+            status_code=400,
+            detail="Please upload PDFs first"
+        )
 
-    answer = ask_question(
-        question,
-        vector_store
-    )
+    answer = ask_question(request.question, vector_store)
 
     return {
         "answer": answer
     }
+
+

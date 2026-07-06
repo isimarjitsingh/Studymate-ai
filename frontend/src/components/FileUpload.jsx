@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const FileUpload = () => {
+const FileUpload = ({ onClose, onUploadSuccess, onUploadError }) => {
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -12,6 +12,7 @@ const FileUpload = () => {
   const handleUpload = async () => {
     if (files.length === 0) {
       alert("Please select PDFs first");
+      onUploadError();
       return;
     }
 
@@ -32,45 +33,70 @@ const FileUpload = () => {
       console.log(response.data);
 
       alert("PDFs uploaded successfully!");
+      onUploadSuccess(files);
+      setFiles([]);
+      onClose();
     } catch (error) {
       console.error(error);
       alert("Upload failed");
+      onUploadError();
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="bg-slate-900 mt-10 p-6 rounded-2xl">
-      <h2 className="text-2xl font-semibold">
-        Upload PDFs
-      </h2>
-
-      <input
-        type="file"
-        multiple
-        accept=".pdf"
-        onChange={handleFiles}
-        className="mt-4"
-      />
-
-      <div className="mt-5">
-        {files.map((file, index) => (
-          <p
-            key={index}
-            className="text-green-400"
-          >
-            ✓ {file.name}
+    <div>
+      <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-purple-400 transition cursor-pointer">
+        <input
+          type="file"
+          multiple
+          accept=".pdf"
+          onChange={handleFiles}
+          className="hidden"
+          id="file-input"
+        />
+        <label htmlFor="file-input" className="cursor-pointer">
+          <div className="text-5xl mb-4">📁</div>
+          <p className="text-gray-600 mb-2">
+            Click to upload or drag and drop
           </p>
-        ))}
+          <p className="text-sm text-gray-400">PDF files only</p>
+        </label>
       </div>
 
-      <button
-        onClick={handleUpload}
-        className="mt-4 bg-blue-600 px-4 py-2 rounded-lg"
-      >
-        {loading ? "Uploading..." : "Upload PDFs"}
-      </button>
+      {files.length > 0 && (
+        <div className="mt-4 space-y-2">
+          {files.map((file, index) => (
+            <div
+              key={index}
+              className="flex items-center gap-3 p-3 bg-green-50 rounded-lg border border-green-200"
+            >
+              <span className="text-green-500">✓</span>
+              <span className="text-gray-700 flex-1 truncate">{file.name}</span>
+              <span className="text-sm text-gray-500">
+                {(file.size / 1024 / 1024).toFixed(2)} MB
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <div className="flex gap-3 mt-6">
+        <button
+          onClick={onClose}
+          className="flex-1 px-4 py-3 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-50 transition font-medium"
+        >
+          Cancel
+        </button>
+        <button
+          onClick={handleUpload}
+          disabled={loading || files.length === 0}
+          className="flex-1 bg-purple-600 hover:bg-purple-700 text-white px-4 py-3 rounded-xl transition font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {loading ? "Uploading..." : "Upload PDFs"}
+        </button>
+      </div>
     </div>
   );
 };

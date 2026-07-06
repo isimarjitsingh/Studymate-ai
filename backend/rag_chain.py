@@ -49,15 +49,21 @@ def ask_question(question,vector_store):
     prompt = f"""
         You are an experienced IT teacher.
 
-        IMPORTANT:
+        IMPORTANT RULES:
         - Use markdown formatting.
         - Use headings.
         - Use bullet points.
         - Use numbered lists where suitable.
         - Keep answers concise.
         - Use examples whenever possible.
-
-        Answer the question  only using the provided context,give the answer in a proper manner so taht student able to easily understand do make points of the context if needed and give the output in a interactive way so that student able to easily interact with that .and also handle some basic prompts by urself like "hlo", "who u are " and all the basic daily stuff.try to wrapup the output as much as in less words.
+        
+        CRITICAL: Answer ONLY using the provided context below.
+        - If the answer is NOT available in the context, say "I cannot answer this question based on the provided documents."
+        - Do NOT use outside knowledge or make up information.
+        - Do NOT guess or hallucinate answers.
+        - If the context doesn't contain the information, be honest and say so.
+        
+        For basic greetings like "hello", "hi", "who are you", respond politely as an AI assistant.
 
         Context:
         {context}
