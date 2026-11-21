@@ -7,25 +7,6 @@
 </p>
 
 ---
-
-# 📷 Screenshots
-
-## 🏠 Home Page
-
-<p align="center">
-<img src="images/home.png" width="900">
-</p>
-
----
-
-## 📄 PDF Upload
-
-<p align="center">
-<img src="images/upload.png" width="900">
-</p>
-
----
-
 # ✨ Features
 
 - 📂 Upload multiple PDF documents
@@ -61,6 +42,25 @@
 </p>
 
 ---
+# 📷 Screenshots
+
+## 🏠 Home Page
+
+<p align="center">
+<img src="images/home.png" width="900">
+</p>
+
+---
+
+## 📄 PDF Upload
+
+<p align="center">
+<img src="images/upload.png" width="900">
+</p>
+
+---
+
+
 
 # ⚙ How It Works
 
