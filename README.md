@@ -8,12 +8,6 @@
 
 ---
 
-# 🌐 Live Demo
-
-🔗 **Website:
-
----
-
 # 📷 Screenshots
 
 ## 🏠 Home Page
@@ -28,14 +22,6 @@
 
 <p align="center">
 <img src="images/upload.png" width="900">
-</p>
-
----
-
-## 💬 AI Chat Interface
-
-<p align="center">
-<img src="images/chat.png" width="900">
 </p>
 
 ---
