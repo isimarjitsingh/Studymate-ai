@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEndpointEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_community.retrievers import BM25Retriever
 import os
@@ -8,8 +8,12 @@ import uuid
 
 load_dotenv()
 
-llm = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-MiniLM-L6-v2"
+HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACE_API_KEY")
+
+llm = HuggingFaceEndpointEmbeddings(
+    model="sentence-transformers/all-MiniLM-L6-v2",
+    task="feature-extraction",
+    huggingfacehub_api_token=HUGGINGFACE_API_KEY,
 )
 
 parent_store={}
