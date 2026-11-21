@@ -1,22 +1,26 @@
-from langchain_huggingface import HuggingFaceEndpoint,ChatHuggingFace
+from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 import vector_store as vs
 import os
-from langchain_core.messages import HumanMessage,AIMessage
+from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.chat_history import InMemoryChatMessageHistory
 
 load_dotenv()
 
-chat = HuggingFaceEndpoint(
-    repo_id="meta-llama/Llama-3.1-8B-Instruct",
-    task="text-generation",
-    max_new_tokens=512,
-    temperature=0.3,
-)
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-llm = ChatHuggingFace(llm=chat)
+def get_llm(api_key=None):
+    """Return a ChatGroq instance using the given API key, or the default."""
+    return ChatGroq(
+        model="openai/gpt-oss-120b",
+        groq_api_key=api_key or GROQ_API_KEY,
+        temperature=0.7,
+    )
 
-history=InMemoryChatMessageHistory()
+
+llm = get_llm()
+
+history = InMemoryChatMessageHistory()
 
 def ask_question(question,vector_store):
 

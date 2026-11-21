@@ -6,13 +6,12 @@ langchain
 langchain-community
 langchain-core
 
-langchain-google-genai
+langchain-groq
+sentence-transformers
 
-langchain-huggingface
 
 faiss-cpu
 
 pymupdf
 rank_bm25
 python-dotenv
-sentence-transformers

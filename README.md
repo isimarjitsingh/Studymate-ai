@@ -133,7 +133,7 @@ AI Response
 - BM25
 - PyMuPDF
 - Google Gemini API
-- Hugging Face Embeddings API
+- Google Gemini Embeddings API
 
 ---
 
