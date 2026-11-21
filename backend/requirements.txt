@@ -7,8 +7,7 @@ langchain-community
 langchain-core
 
 langchain-groq
-langchain-huggingface
-huggingface_hub
+langchain-google-genai
 
 
 faiss-cpu
